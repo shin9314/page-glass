@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>メニュー画像</title>
     <style>
         body, html {
@@ -10,23 +10,39 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow-x: hidden;
+            background-color: #000; /* メニューの背景に合わせて黒に設定 */
         }
-        body {
+        .image-container {
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            background-color: #f0f0f0;
+            align-items: center;
+            overflow: auto;
         }
         img {
-            width: 100vw;
-            height: auto;
-            display: block;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
+            display: block;
+        }
+        @media (orientation: portrait) {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        @media (orientation: landscape) {
+            img {
+                width: auto;
+                height: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <img src="menu.png" alt="メニュー画像">
+    <div class="image-container">
+        <img src="menu.png" alt="メニュー画像">
+    </div>
 </body>
 </html>
